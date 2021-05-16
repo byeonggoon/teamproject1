@@ -85,9 +85,7 @@ function validateEmail(email) {
     return re.test(email);
 }
 
-// $('#find-id-btn').onfocus(function(){
-//     $('#show-user-id').addClass('changevalue');
-// })
+
 
 $('#show-user-id').ready(function(){
     let $showUserid = document.getElementById('show_id').value;

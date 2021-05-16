@@ -47,17 +47,7 @@ $('#userId').blur(function () {
     }
 
 })
-// $('#userId').blur(function () {
-//     
-//     console.log(over);
-//     if (over == 0) {
-//         $('#over').css('color', 'green');
-//     } else if (over == 1) {
-//         $('#over').css('color', 'red');
-//     } else {
-//         $('#over').css('color', 'black');
-//     }
-// })
+
 $('#over').click(function () {
         console.log('실행',$('#userId').val())
         window.open("/overlap.html","Terms-of-Service","width=600,height=150,scrollbars=yes");
@@ -131,11 +121,7 @@ function okTerms() {
     window.close();
 }
 
-// function overlap(){
-//     let overUserId=document.getElementById('userId').value;
-//     console.log(overUserId);
-//     overlapForm.submit();
-// }
+
 $(document).ready(function(){
     $("#total-header").load("/header.html")
 });

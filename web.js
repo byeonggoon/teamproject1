@@ -42,10 +42,7 @@ app.use(bodyParser.json());
 app.listen(8020, function () {
     console.log('server running at http://127.0.0.1:8020');
 });
-//미들웨어 장착
-// app.get('/', function (request, response) {
-//     response.sendFile(path.join(__dirname + '/login.html'));
-// });
+
 
 
 
@@ -98,12 +95,7 @@ app.use('/locationjs', express.static(__dirname + '/location/location.js'));
 app.use('/locationcss', express.static(__dirname + '/location/location.css'));
 app.use('/locationbackground', express.static(__dirname + '/location/images/location배경.jpg'));
 app.use('/locationimg', express.static(__dirname + '/location/images/map.jpg'));
-// app.use('/map', express.static(http+'dapi.kakao.com/v2/maps/sdk.js?appkey=cb2ddce9c272d8e533706240faf2a4b7'));
-// app.use('/roadview.js', express.static(__dirname + '/location/js/roadview.js'));
-// app.use('/roadview2.js', express.static(__dirname + '/location/js/roadview2.js'));
-// app.use('/kakao.js', express.static(__dirname + '/location/js/kakao.js'));
-// app.use('/drawing.js', express.static(__dirname + '/location/js/drawing.js'));
-// app.use('/clusterer.js', express.static(__dirname + '/location/js/clusterer.js'));
+
 
 // 서버를 실행합니다.
 //qna
@@ -279,15 +271,7 @@ app.get('/signIn.html', function (request, response) {
     });
 });
 
-// app.get('/board.html', function (request, response) {
-//     // response.render('index');
-//     // 파일을 읽습니다.
-//     fs.readFile(__dirname + '/board/views/board.ejs', 'utf8', function (error, data) {
-//         // 응답합니다.
-//         console.log(__dirname + '/board/views/board.ejs');
-//         response.send(data);
-//     });
-// });
+
 
 app.post('/signIn', function (request, response) {
     var body = request.body;
@@ -339,9 +323,6 @@ app.post('/overlap', function (request, response) {
                     }));
                 });
             }
-            // response.send(ejs.render(data, {
-            //     data: results
-            // }));
         });
     }
 
@@ -588,8 +569,6 @@ app.post('/forgotId', function (request, response) {
                 response.send("<script>alert('존재하지 않는 아이디 입니다.');history.back()</script>");
             }
 
-            // console.log('results.userid', results[0].userid);
-
         });
     });
 });
@@ -615,123 +594,7 @@ app.post('/forgotPwd', function (request, response) {
         });
     });
 });
-///////////////////////////////////////////board
-// var boardinput=require("./board/func/data").boardinput;
-// var boardoutput=require("./board/func/data").boardoutput;
-// var boardupdate=require('./board/func/data').boardupdate;
-// var boarddelete=require('./board/func/data').boarddelete;
-// var boardclick=require('./board/func/data').boardclick;
-// var showshow=require('./board/func/function').showshow;
-// var upclick=require('./board/func/function').upclick;
 
-// /* board-page */
-// let sum=0;
-// router.get("/board.html", function (req, res, next) {
-
-//   boardoutput(function (board){
-//   let pagecheck=Math.ceil(board.length/5);
-
-//    res.render('board',{
-//      data:board,
-//      gofunc:showshow,
-//      pagecheck:pagecheck
-//    });
-
-//  })
-// });
-
-// router.get("/up", function (req, res, next) {
-//   boardoutput(function (board){
-//     console.log(showshow);
-//     res.render('boardup',{
-//       data:board,
-//       gofunc:showshow,
-//       upclick:upclick
-//     });
-
-//   })
-
-// });
-
-
-// router.get("/show", function (req, res, next) {
-
-//   if(req.query.id){
-//     boardoutput(function (board){
-//       res.render('show',{
-//         title:board[(req.query.id)].title,
-//         content:board[(req.query.id)].content,
-//         id:board[(req.query.id)].id,
-//         page:0
-
-//       });
-//     })
-//   }
-//   if(req.query.uid){
-//     boardoutput(function (board){
-//       res.render('showup',{
-//        data:board,
-//        upclick:upclick,
-//        num:req.query.uid,
-//         page:1
-
-//       });
-//     })
-//   }
-// if(req.query.delete){
-//   console.log(req.query.delete);
-//   boarddelete(req.query.delete);
-// }
-// if((req.query.loveit)||(req.query.loveitid)){
-//   console.log(req.query.loveit,req.query.loveitid);
-//   let temp=parseInt(req.query.loveit);
-//   let idclick=parseInt(req.query.loveitid);
-//   boardclick(temp,idclick);
-
-// }
-// });
-
-// router.post("/show", function (req, res, next) {
-//   let updateData={
-//     'id':req.body.id,
-//     'title':req.body.title,
-//     'content':req.body.content
-//   }
-//   boardupdate(updateData);
-// });
-
-
-
-
-// router.get("/write", function (req, res, next) {
-//   res.render('write');
-// });
-
-// router.post("/write", function (req, res, next) {
-//   let boardContent={'title':req.body.title,
-//   'open':req.body.open,
-//   'content':req.body.content
-// };
-// boardinput(boardContent);
-
-// });
-
-
-// module.exports = router;
-
-
-/////////////////////////board/views/board.ejs
-//게시판 가기
-// app.get('/board.html', function (request, response) {
-//     fs.readFile(__dirname + '/board/views/board.ejs', 'utf8', function (error, data) {
-//         client.query('SELECT * FROM boardContent ORDER BY boardno DESC', function (error, results) {
-//             console.log(results)
-//             response.send(ejs.render(data, {
-//                 data: results
-//             }));
-//         });
-//     });
-// });
 
 app.get('/board.html/:num', function (request, response) {
     var page = request.params.num;
@@ -836,18 +699,6 @@ app.get('/deleteBoard/:boardno/:userid', function (request, response) {
 
 });
 
-//게시판 검색
-// app.post('/searchBoard', function (request, response) {
-//     var body = request.body;
-//     console.log('search!!!', body.searchBoard);
-//     fs.readFile(__dirname + '/board/views/board.ejs', 'utf8', function (error, data) {
-//         client.query('SELECT * FROM boardContent where title like ? ORDER BY boardno DESC', ['%' + body.searchBoard + '%'], function (error, results) {
-//             response.send(ejs.render(data, {
-//                 data: results
-//             }));
-//         });
-//     });
-// });
 
 app.post('/searchBoard.html/:num', function (request, response) {
     var body = request.body;
@@ -884,16 +735,6 @@ app.get('/searchBoard.html/:searchBoard/:num', function (request, response) {
     });
 });
 
-////////////////////////qna
-// app.get('/qna.html', function(request,response){
-//     fs.readFile(__dirname + '/qna/qna.html', 'utf8', function(error,data){
-//         client.query('SELECT * FROM QNAboard ORDER BY No DESC', function (error, results) {
-//             response.send(ejs.render(data, {
-//             data: results
-//             }));
-//         });
-//     });
-// });
 app.get('/qna.html/:num', function (request, response) {
     var page = request.params.num;
     fs.readFile(__dirname + '/qna/qna.html', 'utf8', function (error, data) {
