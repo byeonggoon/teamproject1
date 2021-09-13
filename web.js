@@ -16,8 +16,8 @@ const router = express.Router();
 // 데이터베이스와 연결합니다.
 var client = mysql.createConnection({
     host: 'dbcon.cafe24app.com',
-    user: 'kpg1997',
-    password: 'qlalf8956!!',
+    user: '유저입력',
+    password: '비밀번호입력',
     database: 'kpg1997',
     port: '3306',
 });//내 cafe24 db 가져옴
